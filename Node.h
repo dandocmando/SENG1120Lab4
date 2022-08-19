@@ -24,7 +24,11 @@ public:
 
     static void Printout(Node* head); // prints out each Node in the list
 
-    bool delete_node(const std::string& accName); // deletes a node from the list if it has the same name as the parameter
+    bool delete_node(std::string& accName); // deletes a node from the list if it has the same name as the parameter
+
+    bool test();
+
+    static bool delete_nodeV2(Node* head, const std::string& del_acc_by_name);
 
 private:
     Node* prev; // pointer to previous Node in list

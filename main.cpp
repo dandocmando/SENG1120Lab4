@@ -31,6 +31,7 @@ int main() {
     tail->set_next(n);
     tail = n;
 
+    //std::cout << n->get_data().get_name()<<std::endl;
 
     account* acc4 = new account("pinky",25.0);
     n = new Node;
@@ -41,7 +42,7 @@ int main() {
     tail->set_next(NULL); // set the next node to null, this is the end of the list
 
     Node::Printout(head); //prints out the list of nodes
-    Node::delete_node("Dan");
+    Node::delete_nodeV2(head, "dan");
     Node::Printout(head);
 
 

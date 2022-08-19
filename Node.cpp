@@ -32,16 +32,51 @@ void Node::Printout(Node* head){
     std::cout << std::endl;
 }
 
+
+
 void Node::set_data(const Node::value_type& d) { //set the data in the node
     data = d;
 
 }
 
-bool Node::delete_node(const std::string& accName) { //deletes a node from the list if it has the same name as the parameter
+bool Node::delete_node( std::string& accName) { //deletes a node from the list if it has the same name as the parameter
     if (get_data().get_name() == accName) {
         return true;
+    }
+    return false;
+}
+
+bool Node::test() { //deletes a node from the list if it has the same name as the parameter
+    return true;
+}
+
+bool Node::delete_nodeV2(Node* head, const std::string& del_acc_by_name) {
+    Node* temp = head; //create a temporary node to traverse the list
+
+    while(temp != NULL){ //while the temporary node is not null
+        if(temp->get_data().get_name()==del_acc_by_name){
+            if(temp->get_next() !=NULL){
+                head->set_next(temp->get_next());
+            }
+            else{
+                head->set_next(NULL);
+            }
+            if(temp->get_prev() != NULL){
+                head->set_prev(temp->get_prev());
+            }
+            else{
+                head->set_prev(NULL);
+            }
+            std::cout << "Account "<< temp->get_data().get_name() << " deleted successfully."<<std::endl;
+
+        }
+        //std::cout << temp->get_data() << " "; //print out the data in the node
+        temp = temp->get_next(); //point temp node to the next node
+
 
 
     }
     return false;
+    std::cout << std::endl;
+
 }
