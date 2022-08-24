@@ -7,6 +7,7 @@
 
 
 #include "Node.h"
+#include "account.h"
 #include <string>
 
 class LinkedList {
@@ -15,6 +16,7 @@ public:
     typedef account value_type;
 
     LinkedList();
+    LinkedList(value_type& dataIn);
     ~LinkedList();
 
 
@@ -25,23 +27,25 @@ public:
     value_type remove_tail();
     value_type remove_current();
 
-    void start();
-    void end();
+    void move_to_head();
+    void move_to_tail();
     void forward();
     void backward();
-    value_type& get_current();
-    int size();
+    value_type get_current();
+    int size() const;
+
+    void printout();
 
 private:
-    Node* head;
-    Node* tail;
-    Node* current;
-    //int count;
-    value_type data; //value_type is a class that is defined in account.h
+    Node* head_ptr;
+    Node* tail_ptr;
+    Node* current_ptr;
+    int lst_len;
+    //value_type data; //value_type is a class that is defined in account.h
 };
 
 
-};
+
 
 
 #endif //CPLUSPLUS_LINKEDLIST_H

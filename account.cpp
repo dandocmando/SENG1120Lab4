@@ -4,6 +4,7 @@
 
 #include "account.h"
 #include <string>
+#include <iostream>
 
 
 account::account(const std::string& nameIn, double initialValue)
@@ -36,4 +37,8 @@ bool account::has_funds() const
 
 std::string account::get_name() const{
     return name;
+}
+
+std::string account::print() const{
+     return get_name(); // balance();
 }

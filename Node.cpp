@@ -16,6 +16,7 @@ Node* Node::get_prev() const{return prev;}
 Node::value_type Node::get_data() const{return data;}
 
 std::ostream& operator <<(std::ostream& out, const Node::value_type& d){
+    //out << d.print();
     out <<"Name: "<< d.get_name() << ", balance: " << d.balance()<<std::endl;
     return out;
 }
@@ -46,10 +47,6 @@ bool Node::delete_node( std::string& accName) { //deletes a node from the list i
     return false;
 }
 
-bool Node::test() { //deletes a node from the list if it has the same name as the parameter
-    return true;
-}
-
 bool Node::delete_nodeV2(Node* head, const std::string& del_acc_by_name) {
     Node* temp = head; //create a temporary node to traverse the list
 
@@ -77,6 +74,15 @@ bool Node::delete_nodeV2(Node* head, const std::string& del_acc_by_name) {
 
     }
     return false;
-    std::cout << std::endl;
+}
 
+Node::Node(const Node::value_type &dataIn, Node *nextIn, Node *prevIn) {
+    data = dataIn;
+    next = nextIn;
+    prev = prevIn;
+}
+
+Node::Node() {
+    next = NULL;
+    prev = NULL;
 }

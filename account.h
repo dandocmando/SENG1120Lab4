@@ -43,6 +43,8 @@ public:
 
     std::string get_name() const;
 
+    std::string print() const;
+
 private:
 
     double acc_balance;

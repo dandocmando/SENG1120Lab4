@@ -4,17 +4,17 @@
 #include "account.h"
 
 int main() {
-    Node* head; //pointer to the head of the list
-    Node* tail; //pointer to the tail of the list
+    Node* head; //pointer to the head_ptr of the list
+    Node* tail; //pointer to the tail_ptr of the list
     Node* n; //pointer to a node
 
     account* acc = new account("james",100.0); // create an account on the heap
 
-    n = new Node; // create a new Node
+    n = new Node(); // create a new Node
     n->set_data(*acc); // set the data in the node
     n->set_prev(NULL); // set the previous node to null
-    head = n; // set the head to the new node
-    tail = n; // set the tail to the new node
+    head = n; // set the head_ptr to the new node
+    tail = n; // set the tail_ptr to the new node
 
     account* acc2 = new account("dan",250.0);
     n = new Node;
@@ -39,7 +39,7 @@ int main() {
     n->set_prev(tail);
     tail->set_next(n);
     tail = n;
-    tail->set_next(NULL); // set the next node to null, this is the end of the list
+    tail->set_next(NULL); // set the next node to null, this is the move_to_tail of the list
 
     Node::Printout(head); //prints out the list of nodes
     Node::delete_nodeV2(head, "dan");

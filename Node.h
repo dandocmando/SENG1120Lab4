@@ -13,6 +13,9 @@ class Node {
 public:
     typedef account value_type;
 
+    Node(const value_type& dataIn, Node* nextIn = NULL, Node* prevIn = NULL);
+    Node();
+
     // setters and getters for next and previous nodes
     void set_next(Node* n);
     void set_prev(Node* p);
@@ -26,8 +29,6 @@ public:
 
     bool delete_node(std::string& accName); // deletes a node from the list if it has the same name as the parameter
 
-    bool test();
-
     static bool delete_nodeV2(Node* head, const std::string& del_acc_by_name);
 
 private:
@@ -35,5 +36,7 @@ private:
     Node* next; // pointer to next Node in list
     value_type data; //value_type is a class that is defined in account.h
 };
+
+std::ostream& operator <<(std::ostream& out, const Node::value_type& d);
 
 #endif //CPLUSPLUS_NODE_H
