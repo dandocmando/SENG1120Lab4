@@ -28,23 +28,37 @@ int main(){
     //add to tail
     std::cout << "add to tail" << std::endl;
     test->add_to_tail(testacc2); //add the new account to the tail of the list
-    test->printout();
+    test->printoutV2();
 
     //remove head
     std::cout << "remove head" << std::endl;
     test->remove_head(); //removes the head of the list
-    test->printout();
+    test->printoutV2();
 
     //remove tail
     std::cout << "remove tail" << std::endl;
-    test->remove_tail(); //removes the tail of the list
-    test->printout();
+    //linked list values are not deleted when removed from the list, below allows data to be saved
+    std::cout << test->size();
+    LinkedList::value_type newtt = test->remove_tail(); //removes the tail of the list
+    std::cout <<"size: "<< test->size()<<std::endl;
+    //test->remove_tail();
+    std::cout << newtt.get_name() << std::endl; // prints the name of the account of the node removed from the list
+    std::cout<<newtt.balance()<<std::endl; // prints the balance of the account of the node removed from the list
+
+    test->printoutV2();
+    //std::cout << "remove current" << std::endl;
+    //test->move_to_head(); //move to the head of the list
+    //std::cout<<test->get_current();
+    //test->remove_current(); //removes the current node of the list
+
+    //test->printout();
+
 
 
 
 
     //std::cout << test->get_current();
     //test->move_to_head(); //moves the current pointer to the head of the list
-    test->printout(); //prints the list
+    //test->printout(); //prints the list
     return  0;
 }

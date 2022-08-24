@@ -35,6 +35,7 @@ public:
     int size() const;
 
     void printout();
+    void printoutV2();
 
 private:
     Node* head_ptr;

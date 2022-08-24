@@ -11,25 +11,18 @@
 class Node {
 
 public:
-    typedef account value_type;
+    typedef account value_type; //value_type is a class that is defined in account.h
 
-    Node(const value_type& dataIn, Node* nextIn = NULL, Node* prevIn = NULL);
+    explicit Node(const value_type& dataIn, Node* nextIn = NULL, Node* prevIn = NULL);
     Node();
 
     // setters and getters for next and previous nodes
     void set_next(Node* n);
     void set_prev(Node* p);
-    void set_data(const value_type& d);
 
     Node* get_next() const;
     Node* get_prev() const;
     value_type get_data() const; // returns the data in the node, needs ostream operator to be used
-
-    static void Printout(Node* head); // prints out each Node in the list
-
-    bool delete_node(std::string& accName); // deletes a node from the list if it has the same name as the parameter
-
-    static bool delete_nodeV2(Node* head, const std::string& del_acc_by_name);
 
 private:
     Node* prev; // pointer to previous Node in list
@@ -37,6 +30,6 @@ private:
     value_type data; //value_type is a class that is defined in account.h
 };
 
-std::ostream& operator <<(std::ostream& out, const Node::value_type& d);
+std::ostream& operator <<(std::ostream& out, const Node::value_type& d); //overloads the ostream operator to print the data in the node
 
 #endif //CPLUSPLUS_NODE_H
