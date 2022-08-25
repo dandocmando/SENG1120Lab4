@@ -3,4 +3,4 @@ project(Cplusplus)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(Cplusplus Node.cpp Node.h account.cpp account.h LinkedList.cpp LinkedList.h lab5test.cpp)
+add_executable(Cplusplus Node.cpp Node.h account.cpp account.h LinkedList.cpp LinkedList.h lab5testV2.cpp)

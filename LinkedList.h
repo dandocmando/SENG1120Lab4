@@ -36,6 +36,8 @@ public:
 
     void printout();
     void printoutV2();
+    void printReverse();
+    void printCurrent();
 
 private:
     Node* head_ptr;

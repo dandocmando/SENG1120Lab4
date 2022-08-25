@@ -84,11 +84,13 @@ LinkedList::value_type LinkedList::remove_head(){
 
     else{ //if the list has more than one node
         value_type delData = head_ptr->get_data();
+
         Node* tmp_head_ptr = head_ptr; //create a temporary node to hold the head node
+
         head_ptr = tmp_head_ptr->get_next(); //sets the head node to the next node
+        head_ptr->set_prev(NULL); //sets the previous pointer of the new head node to NULL
 
         delete tmp_head_ptr;
-
         lst_len--;
 
         tmp_head_ptr=NULL; //sets the temporary node to null
@@ -117,18 +119,20 @@ LinkedList::value_type LinkedList::remove_tail(){
         value_type delData = tail_ptr->get_data();
 
         Node* tmp_tail_ptr = tail_ptr; //create a temporary node to hold the tail node
-        tail_ptr = tmp_tail_ptr->get_next(); //sets the tail node to the next node
+
+        tail_ptr = tmp_tail_ptr->get_prev(); //sets the tail node to the next node
+        tail_ptr->set_next(NULL); //sets the next pointer of the new tail node to null
+
         delete tmp_tail_ptr; //deletes the temporary node (mem mgmnt)
 
         lst_len--; //decrements the length of the list
-
         tmp_tail_ptr=NULL; //sets the temporary node to null
 
 
         return delData; //returns the data
     }
-    current_ptr = tail_ptr; //sets the current node to the tail node
-    return LinkedList::value_type();
+    current_ptr = head_ptr; //sets the current node to the tail node
+    return LinkedList::value_type(); //returns empty account
 }
 
 LinkedList::value_type LinkedList::remove_current(){
@@ -205,5 +209,25 @@ void LinkedList::printoutV2() { //prints the list using the len of the list
     std::cout<<"Linklist End"<<std::endl<<std::endl;
 
 }
+
+void LinkedList::printReverse() {
+    Node* tmp_ptr = tail_ptr; //create a temporary node to hold the tail node
+    std::cout << "LinkList Current Data in Reverse:"<<std::endl;
+    while(tmp_ptr!=NULL){ //while the temporary node is not null
+        std::cout<<tmp_ptr->get_data();//<<std::endl; //print the data of the temporary node
+        tmp_ptr = tmp_ptr->get_prev(); //sets the temporary node to the next node
+    }
+    std::cout<<"Linklist End"<<std::endl<<std::endl;
+
+}
+
+void LinkedList::printCurrent() {
+    std::cout << "LinkList Single Node data:"<<std::endl;
+    std::cout<<current_ptr->get_data();//<<std::endl; //print the data of the temporary node
+    std::cout<<"Linklist End"<<std::endl<<std::endl;
+
+}
+
+
 
 

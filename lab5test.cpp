@@ -29,6 +29,9 @@ int main(){
     std::cout << "add to tail" << std::endl;
     test->add_to_tail(testacc2); //add the new account to the tail of the list
     test->printoutV2();
+    account testacc3 = account("testacc2",200); //create a new account
+
+    test->add_to_tail(testacc3); //add the new account to the tail of the list
 
     //remove head
     std::cout << "remove head" << std::endl;
@@ -46,6 +49,8 @@ int main(){
     std::cout<<newtt.balance()<<std::endl; // prints the balance of the account of the node removed from the list
 
     test->printoutV2();
+
+    //test->printoutV2();
     //std::cout << "remove current" << std::endl;
     //test->move_to_head(); //move to the head of the list
     //std::cout<<test->get_current();
