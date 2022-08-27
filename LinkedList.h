@@ -25,7 +25,7 @@ public:
     void add_current(value_type& d);
     value_type remove_head();
     value_type remove_tail();
-    value_type remove_current();
+    value_type& remove_current();
 
     void move_to_head();
     void move_to_tail();

@@ -135,7 +135,7 @@ LinkedList::value_type LinkedList::remove_tail(){
     return LinkedList::value_type(); //returns empty account
 }
 
-LinkedList::value_type LinkedList::remove_current(){
+LinkedList::value_type& LinkedList::remove_current(){
     if(lst_len==0){ //if the list is empty
         //return current_ptr->get_data();;
         std::cout<<"LinkedList has no Nodes"<<std::endl;
@@ -151,18 +151,37 @@ LinkedList::value_type LinkedList::remove_current(){
     }
 
     else{ //if the list has more than one node
+        std::cout << "current_ptr: " << current_ptr->get_data() << std::endl;
+
         value_type delData = current_ptr->get_data();
+        std::cout << "test";
+
         Node* tmp_current_ptr = current_ptr; //create a temporary node to hold the current node
-        current_ptr = tmp_current_ptr->get_next(); //sets the current node to the next node
-        delete tmp_current_ptr; //deletes the temporary node (mem mgmnt)
+        std::cout << "test";
+
+        //current_ptr = tmp_current_ptr->get_next(); //sets the current node to the next node
+        std::cout << "test";
+        if(current_ptr->get_prev() != NULL){
+            //current_ptr->get_prev()->set_next(current_ptr->get_next()); //
+            //current_ptr->get
+            std::cout << "test";
+        }
+        else{
+            //current_ptr->set_prev(NULL);
+        }
+
+
+        //delete tmp_current_ptr; //deletes the temporary node (mem mgmnt)
+        std::cout << "test";
+
 
         lst_len--; //decrements the length of the list
 
-        tmp_current_ptr=NULL; //sets the temporary node to null
-
+        //tmp_current_ptr=NULL; //sets the temporary node to null
+        std::cout << "test";
         return delData; //returns the data
     }
-    return LinkedList::value_type();
+    //return LinkedList::value_type&; //returns empty account
 }
 
 void LinkedList::move_to_head(){
@@ -174,11 +193,22 @@ void LinkedList::move_to_tail(){
 }
 
 void LinkedList::forward(){
-    current_ptr = current_ptr->get_next();
+    if(current_ptr->get_next() != NULL){
+        current_ptr = current_ptr->get_next();
+    }
+    else{
+        std::cout << "Next Node is null.";
+    }
 }
 
 void LinkedList::backward(){
-    current_ptr = current_ptr->get_next();
+    if(current_ptr->get_prev() !=NULL){
+        current_ptr = current_ptr->get_prev();
+    }
+    else{
+        std::cout << "Previous Node is null.";
+    }
+
 }
 
 LinkedList::value_type LinkedList::get_current(){

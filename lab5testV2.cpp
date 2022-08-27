@@ -36,4 +36,8 @@ int main() {
     test->printReverse();
     test->printCurrent();
 
+    test->remove_current();
+
+    test->printout();
+
 }
